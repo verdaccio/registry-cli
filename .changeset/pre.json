@@ -4,5 +4,8 @@
   "initialVersions": {
     "@verdaccio/ctl": "1.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "fine-peas-visit",
+    "initial-release"
+  ]
 }
