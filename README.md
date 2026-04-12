@@ -1,4 +1,4 @@
-# @verdaccio/ctl
+# @verdaccio/registry-cli
 
 CLI tool for [Verdaccio](https://verdaccio.org) registries — non-interactive login, user info with groups, and health checks.
 
@@ -8,10 +8,10 @@ Zero dependencies. Works with any Verdaccio auth plugin (htpasswd, LDAP, Azure A
 
 ```bash
 # Use directly with npx
-npx @verdaccio/ctl login -u admin -p secret
+npx @verdaccio/registry-cli login -u admin -p secret
 
 # Or install globally
-npm install -g @verdaccio/ctl
+npm install -g @verdaccio/registry-cli
 ```
 
 ## Commands
@@ -70,7 +70,7 @@ Returns exit code 1 if unreachable — useful in CI health checks.
 
 ```yaml
 - name: Login to Verdaccio
-  run: npx @verdaccio/ctl login -u ${{ secrets.NPM_USER }} -p ${{ secrets.NPM_PASS }} -r https://registry.company.com
+  run: npx @verdaccio/registry-cli login -u ${{ secrets.NPM_USER }} -p ${{ secrets.NPM_PASS }} -r https://registry.company.com
 
 - name: Publish
   run: npm publish --registry https://registry.company.com
@@ -79,7 +79,7 @@ Returns exit code 1 if unreachable — useful in CI health checks.
 ### Azure DevOps
 
 ```yaml
-- script: npx @verdaccio/ctl login -u $(NPM_USER) -p $(NPM_PASS) -r https://registry.company.com
+- script: npx @verdaccio/registry-cli login -u $(NPM_USER) -p $(NPM_PASS) -r https://registry.company.com
   displayName: Login to Verdaccio
 
 - script: npm publish --registry https://registry.company.com
@@ -91,7 +91,7 @@ Returns exit code 1 if unreachable — useful in CI health checks.
 ```yaml
 publish:
   script:
-    - npx @verdaccio/ctl login -u $NPM_USER -p $NPM_PASS -r https://registry.company.com
+    - npx @verdaccio/registry-cli login -u $NPM_USER -p $NPM_PASS -r https://registry.company.com
     - npm publish --registry https://registry.company.com
 ```
 
@@ -127,7 +127,7 @@ verdaccioctl login --token "$TOKEN" -r https://registry.company.com
 All commands are also exported as functions:
 
 ```typescript
-import {login, loginWithToken, whoami, ping} from '@verdaccio/ctl';
+import {login, loginWithToken, whoami, ping} from '@verdaccio/registry-cli';
 
 await login({username: 'admin', password: 'secret', registry: 'http://localhost:4873'});
 await loginWithToken('eyJhbG...', 'http://localhost:4873');
