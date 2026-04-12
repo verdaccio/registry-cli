@@ -6,7 +6,7 @@ on:
 
   push:
     branches:
-      - master
+      - main
 
 env:
   CI: true
@@ -16,7 +16,7 @@ jobs:
   version:
     timeout-minutes: 14
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master' && github.repository == 'verdaccio/ctl'
+    if: github.ref == 'refs/heads/main' && github.repository == 'verdaccio/ctl'
     steps:
       - name: checkout code repository
         uses: actions/checkout@v4
@@ -35,7 +35,7 @@ jobs:
         run: pnpm install
 
       - name: create versions
-        uses: changesets/action@master
+        uses: changesets/action@main
         with:
           version: pnpm ci:version
           commit: 'build: release packages'
