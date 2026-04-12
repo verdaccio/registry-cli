@@ -62,9 +62,9 @@ export async function login(options: LoginOptions): Promise<void> {
   if (existsSync(npmrcPath)) {
     npmrcContent = readFileSync(npmrcPath, 'utf8');
     // Remove existing entry for this registry
-    const lines = npmrcContent.split('\n').filter(
-      (line) => !line.startsWith(`${registryWithoutProtocol}/:_authToken`)
-    );
+    const lines = npmrcContent
+      .split('\n')
+      .filter((line) => !line.startsWith(`${registryWithoutProtocol}/:_authToken`));
     npmrcContent = lines.join('\n');
   }
 
@@ -102,9 +102,9 @@ export async function loginWithToken(token: string, registry: string): Promise<v
 
   if (existsSync(npmrcPath)) {
     npmrcContent = readFileSync(npmrcPath, 'utf8');
-    const lines = npmrcContent.split('\n').filter(
-      (line) => !line.startsWith(`${registryWithoutProtocol}/:_authToken`)
-    );
+    const lines = npmrcContent
+      .split('\n')
+      .filter((line) => !line.startsWith(`${registryWithoutProtocol}/:_authToken`));
     npmrcContent = lines.join('\n');
   }
 

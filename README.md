@@ -55,14 +55,14 @@ Returns exit code 1 if unreachable — useful in CI health checks.
 
 ## Options
 
-| Option               | Short | Description                                        |
-| -------------------- | ----- | -------------------------------------------------- |
-| `--registry <url>`   | `-r`  | Registry URL (default: `http://localhost:4873`)     |
-| `--username <user>`  | `-u`  | Username (login only)                               |
-| `--password <pass>`  | `-p`  | Password (login only)                               |
-| `--email <email>`    | `-e`  | Email (login only, optional)                        |
-| `--token <token>`    | —     | Pre-existing token for login (JWT, Azure AD, etc.)  |
-| `--help`             | `-h`  | Show help                                           |
+| Option              | Short | Description                                        |
+| ------------------- | ----- | -------------------------------------------------- |
+| `--registry <url>`  | `-r`  | Registry URL (default: `http://localhost:4873`)    |
+| `--username <user>` | `-u`  | Username (login only)                              |
+| `--password <pass>` | `-p`  | Password (login only)                              |
+| `--email <email>`   | `-e`  | Email (login only, optional)                       |
+| `--token <token>`   | —     | Pre-existing token for login (JWT, Azure AD, etc.) |
+| `--help`            | `-h`  | Show help                                          |
 
 ## CI/CD Examples
 

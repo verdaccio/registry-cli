@@ -28,13 +28,7 @@ export default defineConfig({
           return '';
         },
       },
-      external: [
-        /^node:/,
-        'fs',
-        'path',
-        'os',
-        'util',
-      ],
+      external: [/^node:/, 'fs', 'path', 'os', 'util'],
     },
     outDir: 'lib',
     sourcemap: true,
