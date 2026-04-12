@@ -39,7 +39,7 @@ async function main(): Promise<void> {
   const command = args[0];
 
   if (!command || command === '-h' || command === '--help' || command === 'help') {
-    console.log(HELP.trim());
+    process.stdout.write(HELP.trim() + '\n');
     process.exit(0);
   }
 
@@ -58,7 +58,7 @@ async function main(): Promise<void> {
   });
 
   if (values.help) {
-    console.log(HELP.trim());
+    process.stdout.write(HELP.trim() + '\n');
     process.exit(0);
   }
 
@@ -101,10 +101,10 @@ async function main(): Promise<void> {
         process.exit(1);
       }
     }
-  } catch (err: any) {
-    console.error(`Error: ${err.message}`);
+  } catch (err: unknown) {
+    console.error(`Error: ${err instanceof Error ? err.message : String(err)}`);
     process.exit(1);
   }
 }
 
-main();
+void main();

@@ -72,8 +72,8 @@ export async function login(options: LoginOptions): Promise<void> {
   npmrcContent = npmrcContent.trimEnd() + '\n' + npmrcLine + '\n';
   writeFileSync(npmrcPath, npmrcContent, 'utf8');
 
-  console.log(`Logged in as ${username} to ${registryUrl}`);
-  console.log(`Token written to ${npmrcPath}`);
+  process.stdout.write(`Logged in as ${username} to ${registryUrl}\n`);
+  process.stdout.write(`Token written to ${npmrcPath}\n`);
 }
 
 export async function loginWithToken(token: string, registry: string): Promise<void> {
@@ -111,6 +111,6 @@ export async function loginWithToken(token: string, registry: string): Promise<v
   npmrcContent = npmrcContent.trimEnd() + '\n' + npmrcLine + '\n';
   writeFileSync(npmrcPath, npmrcContent, 'utf8');
 
-  console.log(`Logged in as ${username || '(token user)'} to ${registryUrl}`);
-  console.log(`Token written to ${npmrcPath}`);
+  process.stdout.write(`Logged in as ${username || '(token user)'} to ${registryUrl}\n`);
+  process.stdout.write(`Token written to ${npmrcPath}\n`);
 }

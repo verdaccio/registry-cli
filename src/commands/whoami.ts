@@ -55,11 +55,11 @@ export async function whoami(registry: string, token?: string): Promise<WhoamiRe
     // groups info not available — that's fine
   }
 
-  console.log(`Username: ${result.username}`);
+  process.stdout.write(`Username: ${result.username}\n`);
   if (result.groups && result.groups.length > 0) {
-    console.log(`Groups:   ${result.groups.join(', ')}`);
+    process.stdout.write(`Groups:   ${result.groups.join(', ')}\n`);
   }
-  console.log(`Registry: ${registryUrl}`);
+  process.stdout.write(`Registry: ${registryUrl}\n`);
 
   return result;
 }

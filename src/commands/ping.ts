@@ -2,7 +2,7 @@ interface PingResult {
   ok: boolean;
   registry: string;
   responseTime: number;
-  serverInfo?: Record<string, any>;
+  serverInfo?: Record<string, unknown>;
 }
 
 export async function ping(registry: string): Promise<PingResult> {
@@ -15,7 +15,7 @@ export async function ping(registry: string): Promise<PingResult> {
     });
     const responseTime = Date.now() - start;
 
-    let serverInfo: Record<string, any> | undefined;
+    let serverInfo: Record<string, unknown> | undefined;
     try {
       const body = await response.text();
       if (body) {
@@ -33,9 +33,9 @@ export async function ping(registry: string): Promise<PingResult> {
     };
 
     if (response.ok) {
-      console.log(`Registry: ${registryUrl}`);
-      console.log(`Status:   OK`);
-      console.log(`Time:     ${responseTime}ms`);
+      process.stdout.write(`Registry: ${registryUrl}\n`);
+      process.stdout.write(`Status:   OK\n`);
+      process.stdout.write(`Time:     ${responseTime}ms\n`);
     } else {
       console.error(`Registry: ${registryUrl}`);
       console.error(`Status:   FAIL (${response.status})`);
@@ -43,11 +43,11 @@ export async function ping(registry: string): Promise<PingResult> {
     }
 
     return result;
-  } catch (err: any) {
+  } catch (err: unknown) {
     const responseTime = Date.now() - start;
     console.error(`Registry: ${registryUrl}`);
     console.error(`Status:   UNREACHABLE`);
-    console.error(`Error:    ${err.message}`);
+    console.error(`Error:    ${err instanceof Error ? err.message : String(err)}`);
     console.error(`Time:     ${responseTime}ms`);
 
     return {
