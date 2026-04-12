@@ -70,6 +70,9 @@
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,yml,yaml,md}\"",
     "build": "tsc && chmod +x lib/cli.js"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/verdaccio"
