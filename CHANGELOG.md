@@ -2,6 +2,12 @@
 
 ## 1.1.0
 
+### Patch Changes
+
+- 1fd77c1: test: release
+
+## 1.1.0
+
 ### Minor Changes
 
 - 8f78e7a: feat: initial CLI tool for Verdaccio registries — login, whoami, ping
