@@ -1,0 +1,77 @@
+{
+  "name": "@verdaccio/ctl",
+  "version": "1.0.0",
+  "description": "CLI tool for Verdaccio registries — non-interactive login, whoami with groups, and health checks",
+  "type": "module",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "bin": {
+    "verdaccioctl": "./lib/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "keywords": [
+    "verdaccio",
+    "cli",
+    "login",
+    "npm",
+    "registry",
+    "auth"
+  ],
+  "author": "Juan Picado <juanpicado19@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://verdaccio.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/verdaccio/ctl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/verdaccio/ctl/issues"
+  },
+  "packageManager": "pnpm@9.15.4",
+  "devDependencies": {
+    "@changesets/changelog-github": "0.5.2",
+    "@changesets/cli": "2.29.8",
+    "@trivago/prettier-plugin-sort-imports": "4.3.0",
+    "@types/node": "25.5.0",
+    "cross-env": "^7.0.3",
+    "eslint": "10.0.2",
+    "@verdaccio/eslint-config": "12.0.0",
+    "prettier": "3.8.1",
+    "rimraf": "^5.0.0",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.57.1",
+    "vite": "8.0.1",
+    "vite-plugin-dts": "4.5.4",
+    "vitest": "4.1.0"
+  },
+  "scripts": {
+    "clean": "rimraf ./lib",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "ci:version:changeset": "changeset version",
+    "ci:version": "pnpm ci:version:changeset && npm run ci:version:install",
+    "ci:version:install": "pnpm install --frozen-lockfile=false",
+    "ci:publish": "changeset publish",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,yml,yaml,md}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,yml,yaml,md}\"",
+    "build": "tsc && chmod +x lib/cli.js"
+  },
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/verdaccio"
+  }
+}

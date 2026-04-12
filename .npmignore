@@ -1,0 +1,27 @@
+# Source
+src/
+
+# Tests
+tests/
+coverage/
+vitest.config.ts
+
+# Build & config
+tsconfig.json
+vite.config.ts
+eslint.config.mjs
+.prettierrc
+.prettierignore
+.editorconfig
+.nvmrc
+renovate.json
+
+# CI/CD
+.changeset/
+.github/
+
+# Lock files
+pnpm-lock.yaml
+
+# Misc
+.DS_Store
