@@ -1,5 +1,11 @@
 # @verdaccio/registry-cli
 
+## 1.1.2
+
+### Patch Changes
+
+- f791136: chore: release bump package
+
 ## 1.1.1
 
 ### Patch Changes
