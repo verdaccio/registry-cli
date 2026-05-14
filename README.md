@@ -2,7 +2,7 @@
 
 CLI tool for [Verdaccio](https://verdaccio.org) registries — non-interactive login, user info with groups, and health checks.
 
-Zero dependencies. Works with any Verdaccio auth plugin (htpasswd, LDAP, Azure AD, etc.).
+Zero dependencies. Works with any Verdaccio auth plugin (htpasswd, LDAP, Azure AD, etc.)
 
 ## Installation
 
