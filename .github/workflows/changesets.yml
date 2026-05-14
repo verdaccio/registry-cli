@@ -5,9 +5,15 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
 env:
   CI: true
   PNPM_CACHE_FOLDER: .pnpm-store
+  NPM_CONFIG_PROVENANCE: 'true'
 
 jobs:
   version:
@@ -40,8 +46,7 @@ jobs:
           commit: 'build: release packages'
           title: 'build: release packages'
           publish: pnpm ci:publish
+          setupGitUser: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.REGISTRY_AUTH_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_AUTH_TOKEN }}
           NPM_CONFIG_REGISTRY: https://registry.npmjs.org
