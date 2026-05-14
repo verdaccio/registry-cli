@@ -1,5 +1,11 @@
 # @verdaccio/registry-cli
 
+## 1.1.1
+
+### Patch Changes
+
+- 413a514: chore: release bump
+
 ## 1.1.0
 
 ### Patch Changes
